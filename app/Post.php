@@ -13,4 +13,12 @@ class Post extends Model
         'author',
         'publication_date'
     ];
+
+    public function infoPost() {
+        return $this->hasOne('App\infoPost');
+    }
+
+    public function comment() {
+        return $this->hasMany('App\Comment');
+    }
 }
