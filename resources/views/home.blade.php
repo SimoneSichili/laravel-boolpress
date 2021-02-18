@@ -17,6 +17,14 @@
                    <h5>Autore: {{ $post->author }}</h5>
                    <p>Post status: {{ $post->infoPost->post_status }}</p>
                    <p>Comment statis: {{ $post->infoPost->comment_status }}</p>
+
+                   <h3>Commenti</h3>
+                   @foreach ($post->comments as $comment)
+                       <div class="my-3">
+                            <p>{{ $comment->text }}</p>
+                            <h5>{{ $comment->author }}</h5>
+                       </div>
+                   @endforeach
                </section>
            @endforeach
        </div>

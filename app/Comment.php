@@ -4,14 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InfoPost extends Model
+class Comment extends Model
 {
-    public $timestamps = false;
-
     protected $fillable = [
         'post_id',
-        'post_status',
-        'comment_status'
+        'author',
+        'text'
     ];
 
     public function post() {
