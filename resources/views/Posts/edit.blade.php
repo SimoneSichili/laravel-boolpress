@@ -75,6 +75,18 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
+            <h3>Tags</h3>
+            @foreach ($tags as $tag)         
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" 
+                        id="tag-{{ $tag->id }}" name="tags[]" value="{{ $tag->id }} " 
+                        @if ($post->tags->contains($tag->id)) checked @endif>
+                        <label class="custom-control-label" for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                    </div>
+                </div>
+            @endforeach
+
             <button type="submit" class="btn btn-primary">Salva</button>
 
             <a href="{{ route("posts.index") }}" class="btn btn-dark">Indietro</a>
