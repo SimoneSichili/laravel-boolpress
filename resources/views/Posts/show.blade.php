@@ -32,6 +32,14 @@
                 <td>Testo</td>
                 <td>{{  substr($post->text, 0, 500) . '...' }}</td>
             </tr>
+            <tr>
+                <td>Status del post</td>
+                <td>{{ $post->infoPost->post_status }}</td>
+            </tr>
+            <tr>
+                <td>Status dei commenti</td>
+                <td>{{ $post->infoPost->comment_status }}</td>
+            </tr>
         </table>
         <h2>Dettagli Commenti</h2>
         <table class="table table-striped table-bordered my-5">

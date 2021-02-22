@@ -54,9 +54,9 @@
             <div class="form-group">
                 <label for="post_status">Stato del post</label>
                 <select name="post_status" id="post_status" class="custom-select">
-                    <option value="draft">draft</option>
-                    <option value="private">private</option>
-                    <option value="public">public</option>
+                    <option value="draft" {{ old('post_status') == 'draft' ? 'selected' : '' }}>draft</option>
+                    <option value="private" {{ old('post_status') == 'private' ? 'selected' : '' }}>private</option>
+                    <option value="public" {{ old('post_status') == 'public' ? 'selected' : '' }}>public</option>
                 </select>
             </div>
             @error('post_status')
@@ -66,9 +66,9 @@
             <div class="form-group">
                 <label for="comment_status">Stato del commento</label>
                 <select name="comment_status" id="comment_status" class="custom-select">
-                    <option value="open">open</option>
-                    <option value="closed">closed</option>
-                    <option value="private">private</option>
+                    <option value="open" {{ old('comment_status') == 'open' ? 'selected' : '' }}>open</option>
+                    <option value="closed" {{ old('comment_status') == 'closed' ? 'selected' : '' }}>closed</option>
+                    <option value="private" {{ old('comment_status') == 'private' ? 'selected' : '' }}>private</option>
                 </select>
             </div>
             @error('comment_status')

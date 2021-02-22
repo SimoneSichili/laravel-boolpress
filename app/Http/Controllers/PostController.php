@@ -86,8 +86,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // modifica post
         $data = $request->all();
         $post->update($data);
+
+        // modifica infoPost
+
+        // $infoPost = InfoPost::where('post_id', $post->id)->first();
+        $infoPost = $post->infoPost;
+        $data["post_id"] = $post->id; //devo specificare il post_id con l'id del post modificato
+        $infoPost->update($data);
 
         return redirect()->route('posts.index')->with('message', 'Post modificato correttamente!');
     }
