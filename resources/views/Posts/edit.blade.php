@@ -8,12 +8,12 @@
     </head>
     <body>
        <div class="container my-5">
-        <form action="{{ route("posts.store") }}" method="POST">
+        <form action="{{ route('posts.update', $post->id) }}" method="POST">
             @csrf
-            @method("POST")
+            @method("PUT")
             <div class="form-group">
                 <label for="title">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo" value="{{ old('title') }}">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo" value="{{ $post->title }}">
             </div>
             @error('brand')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -21,7 +21,7 @@
     
             <div class="form-group">
                 <label for="subtitle">Sottotitolo</label>
-                <input subtitle="text" class="form-control" id="subtitle" name="subtitle" placeholder="Inserisci il sottotitolo"  value="{{ old('subtitle') }}">
+                <input subtitle="text" class="form-control" id="subtitle" name="subtitle" placeholder="Inserisci il sottotitolo"  value="{{ $post->subtitle }}">
             </div>
             @error('type')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <label for="author">Autore</label>
-                <input author="text" class="form-control" id="author" name="author" placeholder="Inserisci l'autore"  value="{{ old('author') }}">
+                <input author="text" class="form-control" id="author" name="author" placeholder="Inserisci l'autore"  value="{{ $post->author }}">
             </div>
             @error('type')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <label for="publication_date">Data</label>
-                <input type="date" class="form-control" id="publication_date" name="publication_date" value="{{ old("publication_date") }}">
+                <input type="date" class="form-control" id="publication_date" name="publication_date" value="{{ $post->publication_date }}">
             </div>
             @error('type')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <label for="text">Testo</label>
-                <textarea class="form-control" name="text" id="text"rows="6" placeholder="Inserisci il testo" value="{{ old('text') }}"></textarea>
+                <textarea class="form-control" name="text" id="text"rows="6" placeholder="Inserisci il testo">{{ $post->text }}</textarea>
             </div>
             @error('type')
                 <div class="alert alert-danger">{{ $message }}</div>

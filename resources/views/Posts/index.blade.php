@@ -8,6 +8,9 @@
     </head>
     <body>
        <div class="container">
+            @if(Session::has('message'))
+                <p class="alert alert-info">{{ Session::get('message') }}</p>
+            @endif
            <table class="table table-striped table-bordered my-5">
                <thead>
                     <tr>
@@ -28,7 +31,7 @@
                         <td>{{ $post->author }}</td>
                         <td>{{ $post->publication_date }}</td>
                         <td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary"><i class="fas fa-search-plus"></i></a></td>
-                        <td><a href="#" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
+                        <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                         <td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                     @endforeach   
