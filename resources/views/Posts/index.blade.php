@@ -34,6 +34,9 @@
                     @endforeach   
                 </tbody>
            </table>
+           <div class="text-right my-5">
+                <a href="{{ route('posts.create') }}" class="btn btn-primary">Crea un nuovo post</a>
+           </div>
        </div>
     </body>
 </html>
