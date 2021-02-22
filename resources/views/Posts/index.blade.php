@@ -18,6 +18,8 @@
                         <td>Sottotitolo</td>
                         <td>Autore</td>
                         <td>Data di pubblicazione</td>
+                        <td>Status Post</td>
+                        <td>Status Commenti</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -30,6 +32,8 @@
                         <td>{{ $post->subtitle }}</td>
                         <td>{{ $post->author }}</td>
                         <td>{{ $post->publication_date }}</td>
+                        <td>{{ $post->infoPost->post_status }}</td>
+                        <td>{{ $post->infoPost->comment_status }}</td>
                         <td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary"><i class="fas fa-search-plus"></i></a></td>
                         <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a></td>
                         <td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\infoPost;
 
 class PostController extends Controller
 {
@@ -38,10 +39,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // salvataggio post
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
         $post->save();
+
+        // salvataggio infoPost
+        $data["post_id"] = $post->id; //devo specificare il nuovo post_id con l'id del post creato
+        $infoPost = new infoPost();
+        $infoPost->fill($data);
+        $infoPost->save();
 
         return redirect()->route('posts.index')->with('message', 'Post creato correttamente!');
 
