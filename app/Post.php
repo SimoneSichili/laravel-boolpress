@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'publication_date'
+    ];
+    
     protected $fillable = [
         'title',
         'subtitle',
